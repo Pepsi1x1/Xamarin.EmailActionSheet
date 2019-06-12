@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+/.vs
+/ULR-Portal/obj
+/ULR-Portal/bin/Debug/netcoreapp2.2
+/ULR-Portal/bin/Release/netcoreapp2.2
+/Data.Contracts/obj
+/Data.Service/bin/Debug/netcoreapp2.2
+/Data.Service/obj
+/Producer.Document.PDF/bin/Debug/netcoreapp2.1
+/Producer.Document.PDF/obj
