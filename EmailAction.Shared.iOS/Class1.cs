@@ -175,7 +175,6 @@ namespace EmailAction.Shared
 			if(!UIApplication.SharedApplication.CanOpenUrl(url))
 			{
 				return null;
-
 			}
 
 			var action = UIAlertAction.Create(andTitleActionTitle, UIAlertActionStyle.Default,
