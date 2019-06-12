@@ -2,6 +2,7 @@ using EmailActionSheetDemo.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +19,19 @@ namespace EmailActionSheetDemo.ViewModels
             set;
         }
 
-		public MainPageViewModel(INavigationService navigationService)
+        private IDependencyService _dependencyService;
+
+        public MainPageViewModel(INavigationService navigationService, IDependencyService dependencyService)
 			: base(navigationService)
 		{
 			Title = "Main Page";
             OnOpenMail = new DelegateCommand(HandleAction);
-		}
+            _dependencyService = dependencyService;
+        }
 
         void HandleAction()
         {
-            Xamarin.Forms.DependencyService.Get<IOpenMail>().Open(null, null);
+            _dependencyService.Get<IOpenMail>().Open(null, null);
         }
 
     }
