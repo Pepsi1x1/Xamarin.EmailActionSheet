@@ -25,8 +25,8 @@ namespace EmailActionSheetDemo.ViewModels
 			: base(navigationService)
 		{
 			Title = "Main Page";
-            OnOpenMail = new DelegateCommand(HandleAction);
             _dependencyService = dependencyService;
+            OnOpenMail = new DelegateCommand(HandleAction);
         }
 
         void HandleAction()
