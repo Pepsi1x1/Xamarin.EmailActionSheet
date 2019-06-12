@@ -27,34 +27,7 @@ namespace EmailActionSheetDemo.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 
-			Window.RootViewController.PresentViewController(SetupChooseEmailActionSheet(), true, null);
             return base.FinishedLaunching(app, options);
-        }
-
-        UIAlertController SetupChooseEmailActionSheet(string title = "Choose Email", string emailString = null, string subjectString= null)
-        {
-        
-	        var emailActionSheet = UIAlertController.Create(title: title, message: null, preferredStyle: UIAlertControllerStyle.ActionSheet);
-
-
-	        var escapedSubjectString = subjectString == null ? null : Uri.EscapeDataString(subjectString);
-
-
-	        var actionArray = ChooseEmailActionSheetPresenter.PopulateAppActionArray(emailString, escapedSubjectString);
-        
-	        if (actionArray.Count == 0)  {
-
-		        emailActionSheet.AddAction(ChooseEmailActionSheetPresenter.OpenSafariAction(null));
-	        } else {
-		        foreach (var action in actionArray)
-		        {
-			        emailActionSheet.AddAction(action);
-		        }
-	        }
-
-	        emailActionSheet.AddAction(UIAlertAction.Create(title: "Cancel", style: UIAlertActionStyle.Cancel, null));
-
-	        return emailActionSheet;
         }
     }
 

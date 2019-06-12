@@ -150,11 +150,7 @@ namespace EmailAction.Shared
 
 		public static UIAlertAction OpenSafariAction(string url)
 		{
-
-			if (url == null)
-			{
-				throw new ArgumentNullException(nameof(url));
-			}
+            url += "";
 
 			var nsurl = new NSUrl(url);
 
@@ -182,7 +178,7 @@ namespace EmailAction.Shared
 
 			}
 
-			var action = UIAlertAction.Create(title: andTitleActionTitle, style: UIAlertActionStyle.Default,
+			var action = UIAlertAction.Create(andTitleActionTitle, UIAlertActionStyle.Default,
 				alertAction => { UIApplication.SharedApplication.OpenUrl(url); });
 
 			return action;
